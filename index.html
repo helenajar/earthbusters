@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Earth Busters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d4a017;
+      --black: #0a0a0a;
+      --red: #c1121f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+      background: radial-gradient(circle at center, #1a0505 0%, var(--black) 70%);
+      color: var(--gold);
+      font-family: "Eater", system-ui, sans-serif;
+      text-align: center;
+    }
+
+    .spikes {
+      position: relative;
+      width: min(380px, 88vw);
+      padding: 15% 15%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spikes::before,
+    .spikes::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .spikes::before {
+      background: var(--red);
+      clip-path: polygon(50.0% 0.0%, 56.1% 11.5%, 65.5% 2.4%, 67.7% 15.3%, 79.4% 9.5%, 77.6% 22.4%, 90.5% 20.6%, 84.7% 32.3%, 97.6% 34.5%, 88.5% 43.9%, 100.0% 50.0%, 88.5% 56.1%, 97.6% 65.5%, 84.7% 67.7%, 90.5% 79.4%, 77.6% 77.6%, 79.4% 90.5%, 67.7% 84.7%, 65.5% 97.6%, 56.1% 88.5%, 50.0% 100.0%, 43.9% 88.5%, 34.5% 97.6%, 32.3% 84.7%, 20.6% 90.5%, 22.4% 77.6%, 9.5% 79.4%, 15.3% 67.7%, 2.4% 65.5%, 11.5% 56.1%, 0.0% 50.0%, 11.5% 43.9%, 2.4% 34.5%, 15.3% 32.3%, 9.5% 20.6%, 22.4% 22.4%, 20.6% 9.5%, 32.3% 15.3%, 34.5% 2.4%, 43.9% 11.5%);
+    }
+
+    .spikes::after {
+      inset: 3%;
+      background: var(--gold);
+      clip-path: polygon(50.0% 0.0%, 55.8% 13.5%, 65.5% 2.4%, 66.8% 17.0%, 79.4% 9.5%, 76.2% 23.8%, 90.5% 20.6%, 83.0% 33.2%, 97.6% 34.5%, 86.5% 44.2%, 100.0% 50.0%, 86.5% 55.8%, 97.6% 65.5%, 83.0% 66.8%, 90.5% 79.4%, 76.2% 76.2%, 79.4% 90.5%, 66.8% 83.0%, 65.5% 97.6%, 55.8% 86.5%, 50.0% 100.0%, 44.2% 86.5%, 34.5% 97.6%, 33.2% 83.0%, 20.6% 90.5%, 23.8% 76.2%, 9.5% 79.4%, 17.0% 66.8%, 2.4% 65.5%, 13.5% 55.8%, 0.0% 50.0%, 13.5% 44.2%, 2.4% 34.5%, 17.0% 33.2%, 9.5% 20.6%, 23.8% 23.8%, 20.6% 9.5%, 33.2% 17.0%, 34.5% 2.4%, 44.2% 13.5%);
+    }
+
+    .logo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      border: 4px solid var(--gold);
+      border-radius: 12px;
+      box-shadow: 0 0 0 4px var(--black);
+    }
+
+    h1 {
+      font-family: "Eater", system-ui, sans-serif;
+      font-weight: 400;
+      font-size: clamp(3rem, 12vw, 7rem);
+      line-height: 1;
+      color: var(--gold);
+      text-shadow: 4px 4px 0 var(--red);
+    }
+
+    p {
+      font-family: "Eater", system-ui, sans-serif;
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      color: var(--red);
+      letter-spacing: 0.08em;
+    }
+
+    .movies {
+      width: min(900px, 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .movies h2 {
+      font-family: "Eater", system-ui, sans-serif;
+      font-weight: 400;
+      font-size: clamp(2.25rem, 8vw, 4rem);
+      color: var(--gold);
+      text-shadow: 3px 3px 0 var(--red);
+    }
+
+    .movies video {
+      width: 100%;
+      height: auto;
+      background: #000;
+      border: 4px solid var(--gold);
+      border-radius: 12px;
+      box-shadow: 0 0 0 4px var(--red), 0 0 40px rgba(193, 18, 31, 0.5);
+    }
+
+    .movies iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 4px solid var(--gold);
+      border-radius: 12px;
+      background: #000;
+      box-shadow: 0 0 0 4px var(--red), 0 0 40px rgba(193, 18, 31, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="spikes">
+    <img class="logo" src="logo.jpeg" alt="Earth Busters logo">
+  </div>
+  <h1>Earth Busters</h1>
+  <p>a movie studio by Hugo</p>
+  <section class="movies" id="movies">
+    <h2>Movies</h2>
+    <video controls playsinline preload="metadata" src="movie.mp4"></video>
+    <iframe src="https://www.youtube.com/embed/vaXYi0CnObM" title="Earth Busters movie" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    <iframe src="https://www.youtube.com/embed/Osjwq6-lIzw" title="Earth Busters movie 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+  </section>
+</body>
+</html>
